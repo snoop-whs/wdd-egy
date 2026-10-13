@@ -129,8 +129,10 @@ button, input, select, textarea { font: inherit; }
 .registration { position: relative; overflow: hidden; padding: 99px 0 108px; background: radial-gradient(ellipse at 92% 4%, rgb(32 169 232 / 17%), transparent 32%), radial-gradient(ellipse at 2% 78%, rgb(28 91 179 / 14%), transparent 34%), linear-gradient(126deg, #0a1736 0%, #0d2046 54%, #102c50 100%); }
 .registration::before { position: absolute; top: -31%; right: -10%; width: min(58vw, 720px); aspect-ratio: 1; border: 1px solid rgb(153 209 243 / 12%); border-radius: 50%; box-shadow: 0 0 0 48px rgb(153 209 243 / 3%), 0 0 0 108px rgb(153 209 243 / 2%); content: ''; pointer-events: none; }
 .registration-inner { position: relative; z-index: 1; }
-.registration-heading { margin-bottom: 40px; }
-.registration .section-heading h2 { color: var(--white); }
+.registration-heading { margin-bottom: 6px; }
+.registration-note { margin: 0 0 8px; color: var(--white); font: 600 15px/1.5 var(--sans); }
+.registration .section-heading { margin-bottom: 6px !important; }
+.registration .section-heading h2 { margin-top: 0 !important; margin-bottom: 0 !important; color: var(--white); }
 .forms-grid { display: grid; grid-template-columns: 1fr; gap: 19px; align-items: start; }
 .form-panel { display: grid; min-width: 0; grid-template-columns: minmax(255px, .72fr) minmax(0, 1.28fr); padding: 0; overflow: hidden; border: 1px solid rgb(174 210 238 / 35%); border-left: 3px solid #40a9ee; background: #fff; box-shadow: 0 22px 52px rgb(1 12 34 / 24%); transition: box-shadow .25s ease, transform .25s ease; }
 .form-panel:hover { transform: translateY(-2px); box-shadow: 0 28px 60px rgb(1 12 34 / 30%); }
@@ -184,6 +186,8 @@ button, input, select, textarea { font: inherit; }
 .footer-contact a { color: var(--navy); text-decoration: none; font: 700 15px/1.55 var(--sans); }
 .footer-contact b { margin-left: 9px; color: #168be5; font-size: 15px; }
 .footer-bottom { display: flex; min-height: 58px; align-items: center; justify-content: space-between; gap: 15px; border-top: 1px solid rgb(16 26 69 / 14%); color: #3e5870; font: 600 14px/1.6 var(--sans); letter-spacing: .02em; }
+.venue-map-link { display: inline-flex; align-items: center; justify-content: center; padding: 9px 14px; border: 1px solid rgb(18 105 223 / 25%); background: rgb(18 105 223 / 6%); color: var(--navy); text-decoration: none; transition: background .2s ease, border-color .2s ease, color .2s ease; }
+.venue-map-link:hover { border-color: var(--blue); background: rgb(18 105 223 / 12%); color: var(--blue); }
 .footer-bottom a { color: #253d56; text-decoration: none; }
 .footer-bottom a:hover, .footer-contact a:hover { color: var(--blue); }
 
@@ -313,7 +317,7 @@ body.registration-page { min-height: 100vh; background: #f1f7fc; }
 body.registration-page .site-header { position: relative; background: rgb(249 252 254 / 94%); }
 body.registration-page .wordmark { flex-shrink: 0; }
 body.registration-page .registration { padding-top: 66px; }
-body.registration-page .registration-heading { margin-bottom: 12px; }
+body.registration-page .registration-heading { margin-bottom: 8px; }
 body.registration-page .registration-heading h1 { margin: 0; color: #fff; font: 400 clamp(38px, 5vw, 58px)/1.12 var(--serif); letter-spacing: -.025em; }
 body.registration-page .registration-intro { max-width: 720px; margin: 0 0 34px; color: #e0e9f3; font-size: 18px; line-height: 1.8; }
 body.registration-page .forms-grid { gap: 24px; }

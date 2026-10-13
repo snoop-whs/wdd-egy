@@ -73,12 +73,12 @@ def validate_submission(payload):
 
     fields = (
         {
-            "fullName": ("Full name", 120),
-            "specialty": ("Medical specialty", 120),
-            "role": ("Job title or professional role", 120),
-            "organization": ("Hospital, institution, or organization", 160),
+            "fullName": ("Full Name", 120),
+            "specialty": ("Medical Specialty", 120),
+            "role": ("Job Title", 120),
+            "organization": ("Hospital Organization", 160),
             "email": ("Email address", 254),
-            "phone": ("Phone number", 40),
+            "phone": ("Mobile Number", 40),
         }
         if kind == "attendee"
         else {
@@ -86,7 +86,7 @@ def validate_submission(payload):
             "contactPerson": ("Contact person", 120),
             "title": ("Professional title", 120),
             "email": ("Business email", 254),
-            "phone": ("Phone number", 40),
+            "phone": ("Mobile Number", 40),
             "interest": ("Sponsorship interest", 100),
             "message": ("Additional message", 2000),
         }
