@@ -247,7 +247,11 @@
               </aside>
               <div class="form-content">
                 <div class="form-panel-heading"><div><h3>Registration Details</h3><span>All fields marked * are required.</span></div></div>
-                <form action="register.php" method="post" data-registration-form data-kind="attendee" novalidate>
+                <form action="https://formsubmit.co/wdd-egy@elmawy.com" method="POST">
+                  <input type="hidden" name="_subject" value="WDD 2026 Attendee Registration">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="_next" value="">
                   <div class="form-grid">
                     <label class="field field-wide">Full Name <span>*</span><input name="fullName" autocomplete="name" required maxlength="120" placeholder="Your full name"><small class="field-error" aria-live="polite"></small></label>
                     <label class="field">Medical Specialty <span>*</span><input name="specialty" autocomplete="organization-title" required maxlength="120" placeholder="e.g. Internal medicine"><small class="field-error" aria-live="polite"></small></label>
