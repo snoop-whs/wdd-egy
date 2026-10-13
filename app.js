@@ -79,11 +79,6 @@ if (countdown) {
   }
 }
 
-const messages = {
-  attendee: 'Your attendee registration has been saved. ',
-  sponsor: 'Your sponsorship inquiry has been saved. ',
-};
-
 function setFieldError(form, name, message) {
   const control = form.elements.namedItem(name);
   if (!control) return;
@@ -156,22 +151,7 @@ forms.forEach((form) => {
         throw new Error(result.error || 'We could not process your submission. Please try again.');
       }
 
-      if (payload.kind === 'attendee') {
-        window.location.assign('/thank-you');
-        return;
-      }
-
-      const successMessage = messages[payload.kind];
-      if (result.emailStatus === 'sent') {
-        displayFeedback(form, 'success', `${successMessage}A confirmation has been sent to your email address.`);
-        form.reset();
-      } else if (result.emailStatus === 'not_configured') {
-        displayFeedback(form, 'warning', `${successMessage}Email notifications are not configured, so no confirmation email was sent. The conference team can follow up once email is enabled.`);
-        form.reset();
-      } else {
-        displayFeedback(form, 'warning', `${successMessage}The email service could not complete notifications. Your submission is saved; please contact wdd-egy@elmawy.com if you need confirmation.`);
-        form.reset();
-      }
+      window.location.assign('/thank-you');
     } catch (error) {
       const message = error.message || 'We could not complete your submission. Please try again.';
       displayFeedback(form, 'error', message);

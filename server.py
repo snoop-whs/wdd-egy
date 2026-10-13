@@ -197,7 +197,8 @@ class ConferenceHandler(SimpleHTTPRequestHandler):
         public_paths = {
             "/", "/index.html", "/registration.html", "/thank-you",
             "/styles.css", "/app.js",
-            "/assets/conference-logo.png",
+            "/assets/world/diabetes-in-focus-transparent.png",
+            "/assets/asl/WhatsApp%20Image%202026-10-13%20at%204.04.34%20PM.jpeg",
             "/assets/topics/cardiovascular.jpeg",
             "/assets/topics/kidney.jpeg",
             "/assets/topics/preventing-complications.jpeg",
