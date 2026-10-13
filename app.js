@@ -135,13 +135,23 @@ forms.forEach((form) => {
     button.disabled = true;
     button.innerHTML = '<span class="button-spinner">Submitting…</span>';
 
+    let submitted = false;
     try {
-      const response = await fetch('/api/registrations', {
+      const response = await fetch(form.action, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-      const result = await response.json();
+      const responseText = await response.text();
+      let result;
+      try {
+        result = JSON.parse(responseText);
+      } catch {
+        throw new Error('The registration service returned an unreadable response. Please try again later.');
+      }
+      if (!result || typeof result !== 'object') {
+        throw new Error('The registration service returned an unexpected response. Please try again later.');
+      }
       if (!response.ok || result.accepted !== true) {
         if (result.fields) {
           Object.entries(result.fields).forEach(([name, message]) => setFieldError(form, name, message));
@@ -151,14 +161,21 @@ forms.forEach((form) => {
         throw new Error(result.error || 'We could not process your submission. Please try again.');
       }
 
-      window.location.assign('/thank-you');
+      submitted = true;
+      displayFeedback(
+        form,
+        'success',
+        result.message || 'Your registration has been submitted. The conference team will follow up.',
+      );
     } catch (error) {
-      const message = error.message || 'We could not complete your submission. Please try again.';
+      const message = error instanceof TypeError
+        ? 'We could not reach the registration service. No confirmation was received. Please try again.'
+        : error.message || 'We could not complete your submission. Please try again.';
       displayFeedback(form, 'error', message);
     } finally {
       form.dataset.submitting = 'false';
-      button.disabled = false;
-      button.innerHTML = originalText;
+      button.disabled = submitted;
+      if (!submitted) button.innerHTML = originalText;
     }
   });
 });
